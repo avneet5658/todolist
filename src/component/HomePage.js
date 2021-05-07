@@ -32,7 +32,7 @@ const HomePage = () => {
       {todos}
       <div className="row">
         <div className="col-lg-2 col-sm-0"></div>
-        <div className="col-lg-8 col-sm-12">
+        <div className="col-lg-8 col-sm-12 p-2 p-lg-0">
           <input
             type="text"
             className="form-control"
