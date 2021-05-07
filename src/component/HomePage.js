@@ -2,8 +2,8 @@ import moment from "moment";
 import React, { useState } from "react";
 
 const HomePage = () => {
-  const [currentTodo, setCurrentTodo] = useState("");
   const [todos, setTodos] = useState([]);
+  const [currentTodo, setCurrentTodo] = useState("");
 
   const handleAddTodo = () => {
     const tempFilter = todos.filter((data) => data === currentTodo);
@@ -12,17 +12,15 @@ const HomePage = () => {
     } else if (tempFilter.length > 0) {
       alert("Entry already exist or ");
     } else {
-      todos.splice(todos.length, 0, currentTodo.trim());
-      // let tempTodos = todos;
-      // tempTodos.push({ description: currentTodo, status: "Pending" });
-      setTodos(todos);
-      setCurrentTodo("");
+      let tempTodos = [...todos];
+      tempTodos.push(currentTodo);
+      setTodos(tempTodos);
     }
   };
   const handleDelete = (index) => {
-    todos.splice(index, 1);
-    setTodos(todos);
-    setCurrentTodo(!currentTodo);
+    let tempTodos = [...todos];
+    tempTodos.splice(index, 1);
+    setTodos(tempTodos);
   };
   return (
     <div className="container">
